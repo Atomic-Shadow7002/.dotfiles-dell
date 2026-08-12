@@ -1,0 +1,54 @@
+[config]
+mode = "dark"
+
+[templates.ghostty]
+input_path = "~/.config/matugen/templates/ghostty/dankcolors"
+output_path = "~/.config/ghostty/themes/dankcolors"
+
+[templates.helix]
+input_path = "~/.config/matugen/templates/helix/dankcolors.toml"
+output_path = "~/.config/helix/themes/dankcolors.toml"
+
+[templates.zellij]
+input_path = "~/.config/matugen/templates/zellij/dankcolors.kdl"
+output_path = "~/.config/zellij/themes/dankcolors.kdl"
+
+[templates.yazi]
+input_path = "~/.config/matugen/templates/yazi/dankcolors.toml"
+output_path = "~/.config/yazi/theme.toml"
+
+[templates.kdeglobals]
+input_path = "~/.config/matugen/templates/kdeglobals/dankcolors"
+output_path = "~/.config/kdeglobals"
+
+[templates.papirus-folders]
+input_path = "~/.config/matugen/templates/matugen/placeholder"
+output_path = "~/.cache/matugen/placeholder"
+colors_to_compare = [
+  { name = "adwaita", color = "#93C0EA" },
+  { name = "blue", color = "#5294E2" },
+  { name = "breeze", color = "#57B8EC" },
+  { name = "carmine", color = "#A30002" },
+  { name = "darkcyan", color = "#45ABB7" },
+  { name = "green", color = "#87B158" },
+  { name = "indigo", color = "#5C6BC0" },
+  { name = "nordic", color = "#81A1C1" },
+  { name = "palebrown", color = "#D1BFAE" },
+  { name = "pink", color = "#F06292" },
+  { name = "teal", color = "#16A085" },
+  { name = "white", color = "#E4E4E4" },
+  { name = "yellow", color = "#F9BD30" },
+  { name = "black", color = "#4F4F4F" },
+  { name = "bluegrey", color = "#607D8B" },
+  { name = "brown", color = "#AE8E6C" },
+  { name = "cyan", color = "#00BCD4" },
+  { name = "deeporange", color = "#EB6637" },
+  { name = "grey", color = "#8E8E8E" },
+  { name = "magenta", color = "#CA71DF" },
+  { name = "orange", color = "#EE923A" },
+  { name = "paleorange", color = "#EECA8F" },
+  { name = "red", color = "#E25252" },
+  { name = "violet", color = "#7E57C2" },
+]
+compare_to = "{{colors.primary.default.hex}}"
+post_hook = "papirus-folders -C {{closest_color}} --theme Papirus"
