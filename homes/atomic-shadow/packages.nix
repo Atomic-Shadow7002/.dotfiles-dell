@@ -2,12 +2,6 @@
 
 {
   home.packages = [
-    # themes and icons
-    (pkgs.catppuccin-kde.override {
-      flavour = [ "mocha" ];
-      accents = [ "mauve" ];
-      winDecStyles = [ "classic" ];
-    })
     pkgs.android-studio
     pkgs.antigravity-ide
     pkgs.bibata-cursors
@@ -17,7 +11,6 @@
     pkgs.deno
     pkgs.distrobox
     pkgs.fd
-    pkgs.ferium
     pkgs.ffmpeg
     pkgs.fish-lsp
     pkgs.gcc
@@ -27,12 +20,7 @@
     pkgs.inotify-tools
     pkgs.jq
     pkgs.just
-    pkgs.kdePackages.karousel
-    pkgs.kdePackages.kconfig
-    pkgs.kdePackages.kde-gtk-config
-    pkgs.krita
     pkgs.lazyjj
-    pkgs.legcord
     pkgs.libreoffice-qt-fresh
     pkgs.lsof
     pkgs.maple-mono.NF
@@ -49,7 +37,6 @@
     pkgs.nvd
     pkgs.openjdk21
     pkgs.papirus-folders
-    pkgs.pear-desktop
     pkgs.protonup-ng
     pkgs.protonup-qt
     pkgs.podman-compose
@@ -60,22 +47,14 @@
           --add-flags "--disable-features=WaylandWindowDecorations"
       '';
     }))
-    (pkgs.prismlauncher.override {
-      jdks = [ pkgs.jdk25 ];
-    })
     pkgs.quickemu
     pkgs.ripgrep
     pkgs.ripgrep-all
     pkgs.rustdesk-flutter
     pkgs.scrcpy
     pkgs.simple-completion-language-server
-    pkgs.sunshine
     pkgs.taplo
     pkgs.telegram-desktop
-    pkgs.tinymist
-    pkgs.typst
-    pkgs.typstyle
-    pkgs.unrar
     pkgs.vlc
     pkgs.vscode
     pkgs.vscode-langservers-extracted

@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/luks.nix
     ../../modules/hosts/common-settings.nix
     ../../modules/hosts/trusted-substituters.nix
     ../../modules/hosts/security.nix
@@ -13,7 +12,6 @@
     ../../modules/hosts/graphics.nix
     ../../modules/hosts/podman.nix
     ../../modules/hosts/vm.nix
-    ../../modules/hosts/sunshine.nix
     ../../modules/hosts/android.nix
     ../../modules/hosts/power.nix
     ../../modules/hosts/gaming.nix
@@ -36,10 +34,7 @@
   # Firmware stuff.
   services.fwupd.enable = true;
 
-  # Laptop lid config. Unlike a docked desktop-replacement setup, this
-  # actually leaves the house -- suspend on lid close unless something has
-  # genuinely docked it (external display attached), so it doesn't cook
-  # itself in a bag.
+  # Laptop lid config
   services.logind = {
     lidSwitch = "suspend";
     lidSwitchDocked = "ignore";
@@ -51,9 +46,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
-  # `linuxPackages`, not `_latest`: a brand-new kernel paired with the
-  # proprietary nvidia driver is exactly where hybrid-graphics laptops tend
-  # to break for a few days after every kernel bump.
   boot.kernelPackages = pkgs.linuxPackages;
 
   # Zram stuff.
@@ -98,12 +90,6 @@
   trusted-substituters.enable = true;
   security.enable = true;
 
-  # Disk encryption. Run `systemd-cryptenroll` once after first boot to add
-  # the TPM key slot -- see PARTITIONING.md.
-  # luks.enable = true;
-  # luks.tpm.enable = true;
-  # luks.device = "/dev/disk/by-uuid/REPLACE-ME-LUKS-PARTITION-UUID";
-
   # Networking stuff.
   netmod.enable = true;
   netmod.name = "nixos";
@@ -113,14 +99,10 @@
   pipewire.enable = true;
 
   # Desktop session. Both are available; pick your session at the login
-  # manager. (Previously these were unconditionally on with no toggle at
-  # all -- now they're regular options like everything else.)
   wm.niri.enable = true;
   wm.plasma.enable = true;
 
-  # Graphics. Intel 10th/11th-gen iGPU + Ampere (RTX 30-series) dGPU,
-  # PRIME offload by default with a "sync" specialisation available for
-  # when you're docked with an external monitor going full send.
+  # Graphics
   graphics.enable = true;
   graphics.intel.enable = true;
   graphics.nvidia.enable = true;
@@ -132,8 +114,6 @@
   graphics.nvidia.prime.intelBusId = "PCI:0@0:2:0";
   graphics.nvidia.prime.nvidiaBusId = "PCI:1@0:0:0";
 
-  # Boot into this specialisation (or `nixos-rebuild switch --specialisation
-  # sync`) when docked with an external monitor for full dGPU performance.
   specialisation.sync.configuration = {
     graphics.nvidia.prime.mode = lib.mkForce "sync";
   };
@@ -149,9 +129,6 @@
   vm.enable = true;
   vm.kvm.enable = true;
   # vm.waydroid.enable = true;
-
-  # Sunshine (and Moonlight) stuff.
-  sunshine.enable = true;
 
   # Flatpak stuff.
   services.flatpak.enable = true;
@@ -193,15 +170,11 @@
     ];
   };
 
-  # Shell. home-manager configures fish's actual behaviour, but the login
-  # shell itself and its /etc/shells registration are a system-level concern.
-  programs.fish.enable = true;
-
   # Me!
   users.users.atomic-shadow = {
     isNormalUser = true;
     description = "Atomic Shadow";
-    shell = pkgs.fish;
+    shell = pkgs.bash;
     extraGroups = [
       "networkmanager"
       "wheel"

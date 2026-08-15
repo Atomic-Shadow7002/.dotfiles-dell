@@ -1,5 +1,3 @@
-# Relocated here from niri/matugen/ -- matugen is a theming engine, not a
-# niri-specific concern, even though niri's colorscheme is what triggers it.
 { pkgs, ... }:
 
 {

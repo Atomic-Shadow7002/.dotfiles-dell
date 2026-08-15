@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   options.graphics = {
@@ -61,8 +66,6 @@
     })
 
     (lib.mkIf (config.graphics.enable && config.graphics.intel.enable) {
-      # iHD covers Skylake through current-gen Intel iGPUs (including the
-      # Comet Lake / Tiger Lake parts found in the 5510/5511).
       hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
       environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
     })
@@ -73,20 +76,13 @@
         modesetting.enable = true;
         open = true;
         nvidiaSettings = true;
-        # `stable` rather than `latest`: pairing a brand-new proprietary
-        # driver with a brand-new kernel is where hybrid-graphics laptops
-        # tend to break for a few days after every kernel bump.
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
       hardware.nvidia-container-toolkit.enable = true;
     })
 
     (lib.mkIf
-      (
-        config.graphics.enable
-        && config.graphics.nvidia.enable
-        && config.graphics.nvidia.prime.enable
-      )
+      (config.graphics.enable && config.graphics.nvidia.enable && config.graphics.nvidia.prime.enable)
       {
         hardware.nvidia.prime = lib.mkMerge [
           {

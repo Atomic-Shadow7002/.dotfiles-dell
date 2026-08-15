@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Declarative, not fish-specific -- applies to any program home-manager
-  # launches for you, not just interactive fish sessions.
   home.sessionPath = [ "$HOME/.local/bin" ];
 
   programs.fish = {
