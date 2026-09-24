@@ -158,16 +158,15 @@ binds {
 
 blur {
     passes 2
-    offset 4.0
-    noise 0.03
-    saturation 1.2
+    offset 6.0
+    noise 0.05
 }
 
 window-rule {
     geometry-corner-radius 16
     clip-to-geometry true
 
-    opacity 0.9
+    opacity 0.85
 
     background-effect {
         blur true
@@ -175,26 +174,21 @@ window-rule {
     }
 
     popups {
-        geometry-corner-radius 12
-        opacity 0.9
+        geometry-corner-radius 15
+        opacity 0.85
 
         background-effect {
             blur true
             xray false
-            saturation 1.5
+            saturation 2
         }
     }
 }
 
 layer-rule {
-    opacity 0.9
+    opacity 0.85
     match namespace="quickshell"
     place-within-backdrop true
 
-    background-effect {
-        blur true
-        xray true
-        noise 0.05
-        saturation 3
-    }
 }
+

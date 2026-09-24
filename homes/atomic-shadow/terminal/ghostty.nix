@@ -13,6 +13,7 @@
       window-padding-y = "0,0";
 
       font-family = "Maple Mono NF";
+      font-size = 16;
       font-feature = "-calt, -liga, -dlig";
     };
   };

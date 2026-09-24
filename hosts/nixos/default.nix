@@ -36,9 +36,9 @@
 
   # Laptop lid config
   services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "suspend";
+    settings.Login.HandleLidSwitch = "suspend";
+    settings.Login.HandleLidSwitchDocked = "ignore";
+    settings.Login.HandleLidSwitchExternalPower = "suspend";
   };
 
   # Fine-grained boot stuff.

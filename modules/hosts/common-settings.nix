@@ -17,6 +17,7 @@
 
   config = lib.mkIf config.common-settings.enable {
     services.printing.enable = true;
+    programs.dconf.enable = true;
 
     nix.settings = {
       experimental-features = [

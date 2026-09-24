@@ -1,8 +1,8 @@
 { pkgs, ... }:
-
 {
-  home.sessionPath = [ "$HOME/.local/bin" ];
-
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
   programs.fish = {
     enable = true;
     plugins = [
@@ -37,6 +37,8 @@
     ];
     interactiveShellInit = ''
       set fish_greeting
+      set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+      fish_add_path --path "$PNPM_HOME/bin"
       # `shellAbbrs` can't place the cursor mid-expansion, so this one stays
       # as a raw `abbr` call instead of living in the attrset below.
       abbr -a --set-cursor="%" -- gcm 'git commit -S -m "%"';

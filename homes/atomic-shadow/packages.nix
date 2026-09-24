@@ -8,13 +8,12 @@
     pkgs.brave
     pkgs.blender
     pkgs.codebook
+    pkgs.dconf
     pkgs.deno
     pkgs.distrobox
     pkgs.fd
     pkgs.ffmpeg
     pkgs.fish-lsp
-    pkgs.gcc
-    pkgs.gnumake
     pkgs.gradle
     pkgs.gtk3
     pkgs.inotify-tools
@@ -34,7 +33,9 @@
     pkgs.nixfmt
     pkgs.noto-fonts-cjk-sans
     pkgs.nodejs
+    pkgs.pnpm
     pkgs.nvd
+    pkgs.onlyoffice-desktopeditors
     pkgs.openjdk21
     pkgs.papirus-folders
     pkgs.protonup-ng
@@ -50,7 +51,6 @@
     pkgs.quickemu
     pkgs.ripgrep
     pkgs.ripgrep-all
-    pkgs.rustdesk-flutter
     pkgs.scrcpy
     pkgs.simple-completion-language-server
     pkgs.taplo

@@ -114,26 +114,11 @@ in
 
       extensions.packages = with addons; [
         bitwarden
-        clearurls
-        darkreader
-        decentraleyes
-        fastforwardteam
-        firefox-color
-        firefox-translations
-        foxyproxy-standard
-        foxytab
         privacy-badger
-        pywalfox
-        read-aloud
         sponsorblock
-        stylus
-        tablissng
         ublock-origin
-        user-agent-string-switcher
-        violentmonkey
-        web-archives
+        tablissng
       ];
-
       userChrome = builtins.readFile ./userChrome.css;
       userContent = builtins.readFile ./userContent.css;
 

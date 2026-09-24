@@ -51,4 +51,4 @@ colors_to_compare = [
   { name = "violet", color = "#7E57C2" },
 ]
 compare_to = "{{colors.primary.default.hex}}"
-post_hook = "papirus-folders -C {{closest_color}} --theme Papirus"
+post_hook = "papirus-folders -C {{closest_color}} --theme Papirus && gsettings set org.gnome.desktop.interface color-scheme prefer-light && gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
