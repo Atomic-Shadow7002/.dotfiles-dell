@@ -4,7 +4,7 @@
     lfs.enable = true;
     settings = {
       user.name = "Abhishek Kumar Ray";
-      user.email = "atomic7002@gmail.com";
+      user.email = "abhishekray7002@gmail.com";
       init.defaultBranch = "main";
       url = {
         "git@github.com:".insteadOf = "gh:";
