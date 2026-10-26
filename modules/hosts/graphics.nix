@@ -20,6 +20,8 @@
     nvidia = {
       enable = lib.mkEnableOption "enable nvidia dGPU support";
 
+      containerToolkit.enable = lib.mkEnableOption "nvidia-container-toolkit (CDI generation for GPU containers)";
+
       prime = {
         enable = lib.mkEnableOption "enable nvidia PRIME hybrid-graphics support";
 
@@ -78,7 +80,7 @@
         nvidiaSettings = true;
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
-      hardware.nvidia-container-toolkit.enable = true;
+      hardware.nvidia-container-toolkit.enable = config.graphics.nvidia.containerToolkit.enable;
     })
 
     (lib.mkIf

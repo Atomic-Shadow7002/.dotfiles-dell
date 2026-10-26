@@ -20,7 +20,7 @@
     pkgs.jq
     pkgs.just
     pkgs.lazyjj
-    pkgs.libreoffice-qt-fresh
+    pkgs.libreoffice-qt
     pkgs.lsof
     pkgs.maple-mono.NF
     pkgs.markdown-oxide
@@ -38,6 +38,7 @@
     pkgs.onlyoffice-desktopeditors
     pkgs.openjdk21
     pkgs.papirus-folders
+    pkgs.pear-desktop
     pkgs.protonup-ng
     pkgs.protonup-qt
     pkgs.podman-compose

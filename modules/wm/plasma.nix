@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   options.wm.plasma.enable = lib.mkEnableOption "enable the Plasma 6 desktop session";

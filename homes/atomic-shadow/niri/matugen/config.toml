@@ -21,6 +21,10 @@ output_path = "~/.config/yazi/theme.toml"
 input_path = "~/.config/matugen/templates/kdeglobals/dankcolors"
 output_path = "~/.config/kdeglobals"
 
+[templates.youtube-music]
+input_path = "~/.config/matugen/templates/youtube-music/dankcolors.css"
+output_path = "~/.config/YouTube Music/themes/dankcolors.css"
+
 [templates.papirus-folders]
 input_path = "~/.config/matugen/templates/matugen/placeholder"
 output_path = "~/.cache/matugen/placeholder"

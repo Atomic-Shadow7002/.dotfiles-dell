@@ -6,6 +6,15 @@ let
       ../_patches/qt6ct.patch
     ];
   });
+
+  pywal = pkgs.pywal16.overridePythonAttrs (old: {
+    makeWrapperArgs = [
+      "--prefix"
+      "PATH"
+      ":"
+      (pkgs.lib.makeBinPath [ pkgs.imagemagick ])
+    ];
+  });
 in
 {
   programs.niri.config = null;
@@ -23,7 +32,7 @@ in
   home.packages = [
     pkgs.dsearch
     pkgs.nautilus
-    pkgs.pywal
+    pywal
     pkgs.pywalfox-native
     qt6ct
   ];
